@@ -93,8 +93,7 @@ class MainWindow(QMainWindow):
         n = self.solutionsCombo.count()
         i = random.randint(0, n-1)
         if self.solutionsCombo.itemText(i) == self.surface.path:
-            self.random_solution()
-            return
+            i = n-random.randint(1, n-1)
         QTimer.singleShot(100, lambda: self.solutionsCombo.setCurrentIndex(i))
 
     def stop_animation(self):
