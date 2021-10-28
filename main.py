@@ -81,9 +81,13 @@ class MainWindow(QMainWindow):
 
         self.path = ""
 
-        self.surface.finishedAnim.connect(self.random_solution)
+        self.surface.finishedAnim.connect(self.auto_play)
 
         QTimer.singleShot(100, self.find_solutions)
+
+    def auto_play(self):
+        if self.auto_anim_btn.isChecked():
+            self.random_solution()
 
     def random_solution(self):
         n = self.solutionsCombo.count()
